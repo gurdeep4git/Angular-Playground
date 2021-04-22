@@ -1,0 +1,72 @@
+{
+"posts": [
+    {  
+        "id": 1,  
+        "userId":1,
+        "title": "First Blog",
+        "body":"This is body of first blog",
+        "imageUrl":"https://picsum.photos/id/1040/500/500",  
+        "createdDate": "January 01, 2021",
+        "rating":5,
+        "topics":["html","css"]
+    },
+    {  
+        "id": 2,  
+        "userId":1,
+        "title": "Second Blog",
+        "body":"This is body of second blog",
+        "imageUrl":"https://picsum.photos/id/1024/500/500",  
+        "createdDate": "March 01, 2021",
+        "rating":4,
+        "topics":["js","web"]
+    },
+    {  
+        "id": 3,  
+        "userId":1,
+        "title": "Second Blog",
+        "body":"This is body of second blog",
+        "imageUrl":"https://picsum.photos/id/65/500/500",  
+        "createdDate": "February 11, 2021",
+        "rating":5,
+        "topics":["js","web"]
+    },
+    {  
+        "id": 4,  
+        "userId":1,
+        "title": "Second Blog",
+        "body":"This is body of second blog",
+        "imageUrl":"https://picsum.photos/id/77/500/500",  
+        "createdDate": "April 20, 2021",
+        "rating":5,
+        "topics":["js","web"]
+    },
+    {  
+        "id": 5,  
+        "userId":1,
+        "title": "Second Blog",
+        "body":"This is body of second blog",
+        "imageUrl":"https://picsum.photos/id/99/500/500",  
+        "createdDate": "April 22, 2021",
+        "rating":4,
+        "topics":["js","web"]
+    }  
+],
+"comments":[
+    {
+        "id":1,
+        "postId":1,
+        "body":"This is a comment 1"
+    },
+    {
+        "id":2,
+        "postId":2,
+        "body":"This is a comment 2"
+    },
+    {
+        "id":3,
+        "postId":2,
+        "body":"This is a comment 2.1"
+    }
+]
+
+}   

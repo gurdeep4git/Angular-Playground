@@ -1,0 +1,37 @@
+<div [formGroup]="experience">
+  <div class="mb-3">
+    <label class="form-label">Company Name</label>
+    <input
+      formControlName="companyName"
+      required
+      type="text"
+      class="form-control"
+    />
+    <span
+      class="text-danger"
+      *ngIf="
+        experience.controls.companyName.touched &&
+        experience.controls.companyName.errors?.required
+      "
+      >Field is required</span
+    >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Total Experience</label>
+    <input
+      formControlName="totalExp"
+      required
+      type="number"
+      class="form-control"
+    />
+    <span
+      class="text-danger"
+      *ngIf="
+        experience.controls.totalExp.touched &&
+        experience.controls.totalExp.errors?.required
+      "
+      >Field is required</span
+    >
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<ng-container *ngIf="postDetails">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a [routerLink]="['/post']" href="#">All Posts</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        {{ postDetails.title }}
+      </li>
+    </ol>
+  </nav>
+
+  <div>
+    <div
+      class="image-holder mb-2"
+      [ngStyle]="{ 'background-image': getImageUrl() }"
+    ></div>
+
+    <div class="d-flex justify-content-between">
+      <h3>{{ postDetails.title }}</h3>
+      <div>Created on: {{ postDetails.createdDate }}</div>
+    </div>
+
+    <div class="topics mb-2">
+      <span
+        *ngFor="let topic of postDetails.topics"
+        class="badge badge-primary mr-1"
+        >{{ topic | uppercase }}</span
+      >
+    </div>
+    <div class="body">
+      <p>{{ postDetails.body }}</p>
+    </div>
+
+    <div *ngIf="postDetails.comments && postDetails.comments.length > 0">
+      <h5>Comments</h5>
+      <ng-container *ngFor="let comment of postDetails.comments">
+        <div class="media">
+          <img
+            width="50"
+            [src]="postDetails.imageUrl"
+            class="rounded-circle mr-3"
+            alt="user"
+          />
+          <div class="media-body">
+            <h6 class="mt-0">user name</h6>
+            <p>{{ comment.body }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>
