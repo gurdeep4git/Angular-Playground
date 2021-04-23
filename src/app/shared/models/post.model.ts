@@ -8,6 +8,7 @@ export class Post {
   comments: Comment[];
   topics: string[];
   rating: number;
+  sortOrder: number;
 }
 
 export class Comment {

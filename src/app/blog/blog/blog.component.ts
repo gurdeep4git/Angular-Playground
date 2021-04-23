@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../shared/api.service';
 import { Post } from './../../shared/models/post.model';
 import { delay, tap } from 'rxjs/operators';
+import { BlogService } from '../blog.service';
 
 @Component({
   selector: 'app-blog',
@@ -9,17 +10,20 @@ import { delay, tap } from 'rxjs/operators';
   styleUrls: ['./blog.component.scss'],
 })
 export class BlogComponent implements OnInit {
-  posts: Post[];
-
   page = 1;
-  limit = 5;
+  limit = 2;
+
   noMorePosts: boolean;
   isLoading: boolean;
 
+  posts: Post[];
   recentPosts: Post[];
   popularPosts: Post[];
 
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private blogService: BlogService,
+    private apiService: ApiService
+  ) {}
 
   ngOnInit(): void {
     this.getPosts();
@@ -28,7 +32,9 @@ export class BlogComponent implements OnInit {
   loadMorePosts() {
     this.page = this.page + 1;
     this.apiService
-      .get(`/posts?_page=${this.page}&_limit=${this.limit}`)
+      .get(
+        `/posts?_page=${this.page}&_limit=${this.limit}&_sort=sortOrder&_order=desc`
+      )
       .pipe()
       .subscribe((posts: Post[]) => {
         if (posts.length === 0) {
@@ -44,8 +50,8 @@ export class BlogComponent implements OnInit {
 
   private getPosts() {
     this.isLoading = true;
-    this.apiService
-      .get(`/posts?_page=${this.page}&_limit=${this.limit}`)
+    this.blogService.getPosts(this.page, this.limit);
+    this.blogService.posts$
       .pipe(
         tap((posts: Post[]) => {
           this.popularPosts = this.getPopularPosts(posts);
