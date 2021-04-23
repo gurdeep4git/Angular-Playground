@@ -1,0 +1,42 @@
+<div>
+  <div class="row">
+    <div class="col-5">
+      <h3>Add new post</h3>
+      <form [formGroup]="postForm" (ngSubmit)="onSubmit(postForm.value)">
+        <div class="form-group">
+          <label>Title</label>
+          <input formControlName="title" type="text" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <label>Image</label>
+          <select formControlName="imageUrl" type="text" class="form-control">
+            <option *ngFor="let option of imageUrlDropdown" [value]="option">
+              {{ option }}
+            </option>
+          </select>
+          <small
+            >Select any number from the list, it will generate random image for
+            post.</small
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Topics</label>
+          <input formControlName="topics" type="text" class="form-control" />
+          <small>Add comma seperated words related the post.</small>
+        </div>
+
+        <div class="form-group">
+          <label>Body</label>
+          <textarea formControlName="body" class="form-control"></textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div *ngIf="savedSuccess" class="alert alert-success mt-4" role="alert">
+    Post saved successfully!!!
+  </div>
+</div>

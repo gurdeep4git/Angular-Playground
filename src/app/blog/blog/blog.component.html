@@ -1,7 +1,16 @@
 <ng-container *ngIf="!isLoading; else loader">
   <div class="row">
     <div class="col-9">
-      <h4>Posts</h4>
+      <div class="d-flex justify-content-between mb-3">
+        <h4>Posts</h4>
+        <button
+          type="button"
+          class="btn btn-primary"
+          [routerLink]="['/post', 'add']"
+        >
+          New post
+        </button>
+      </div>
       <app-post [posts]="posts"></app-post>
       <div class="text-center">
         <button
@@ -11,7 +20,7 @@
         >
           More posts
         </button>
-        <p *ngIf="noMorePosts">No more Posts</p>
+        <p *ngIf="noMorePosts">No more posts</p>
       </div>
     </div>
     <div class="col-3">
@@ -20,8 +29,9 @@
         <app-post [isSidePost]="true" [posts]="popularPosts"></app-post>
       </ng-container>
 
+      <hr *ngIf="popularPosts && popularPosts.length > 0" />
+
       <ng-container *ngIf="recentPosts && recentPosts.length > 0">
-        <hr />
         <h5>Recent posts</h5>
         <app-post [isSidePost]="true" [posts]="recentPosts"></app-post>
       </ng-container>

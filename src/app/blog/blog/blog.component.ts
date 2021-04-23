@@ -11,7 +11,7 @@ import { BlogService } from '../blog.service';
 })
 export class BlogComponent implements OnInit {
   page = 1;
-  limit = 2;
+  limit = 3;
 
   noMorePosts: boolean;
   isLoading: boolean;
@@ -54,6 +54,9 @@ export class BlogComponent implements OnInit {
     this.blogService.posts$
       .pipe(
         tap((posts: Post[]) => {
+          this.blogService.maxPostSortOrder = Math.max(
+            ...posts.map((p) => p.sortOrder)
+          );
           this.popularPosts = this.getPopularPosts(posts);
           this.recentPosts = this.getRecentPosts(posts);
         }),

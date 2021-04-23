@@ -16,3 +16,10 @@ export class Comment {
   postId: number;
   body: string;
 }
+
+export class PostFormData {
+  title: string;
+  body: string;
+  imageUrl: number;
+  topics: string;
+}
