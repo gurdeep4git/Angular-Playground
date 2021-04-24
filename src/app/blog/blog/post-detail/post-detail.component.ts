@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { ApiService } from '../../../shared/api.service';
+import { ApiService } from '../../../shared/services/api.service';
 import { Post } from '../../../shared/models/post.model';
 
 @Component({

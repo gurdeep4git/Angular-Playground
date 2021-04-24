@@ -4,3 +4,12 @@
 body {
   background-color: var(--bodyColor);
 }
+
+form.ng-invalid {
+  button[type="submit"] {
+    border: 1px solid #f2f2f2 !important;
+    background-color: #dedede !important;
+    pointer-events: none !important;
+    color: #7d7d7d !important;
+  }
+}

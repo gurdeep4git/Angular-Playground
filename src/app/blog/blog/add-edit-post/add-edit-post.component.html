@@ -6,6 +6,16 @@
         <div class="form-group">
           <label>Title</label>
           <input formControlName="title" type="text" class="form-control" />
+          <div
+            style="font-size: 12px"
+            class="text-danger"
+            *ngIf="
+              formControls.title.touched &&
+              formControls.title.hasError('required')
+            "
+          >
+            This is a required field
+          </div>
         </div>
 
         <div class="form-group">
@@ -25,11 +35,31 @@
           <label>Topics</label>
           <input formControlName="topics" type="text" class="form-control" />
           <small>Add comma seperated words related the post.</small>
+          <div
+            style="font-size: 12px"
+            class="text-danger"
+            *ngIf="
+              formControls.topics.touched &&
+              formControls.topics.hasError('required')
+            "
+          >
+            This is a required field
+          </div>
         </div>
 
         <div class="form-group">
           <label>Body</label>
           <textarea formControlName="body" class="form-control"></textarea>
+          <div
+            style="font-size: 12px"
+            class="text-danger"
+            *ngIf="
+              formControls.body.touched &&
+              formControls.body.hasError('required')
+            "
+          >
+            This is a required field
+          </div>
         </div>
 
         <button class="btn btn-primary" type="submit">Submit</button>

@@ -6,7 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { ApiService } from '../../shared/api.service';
+import { ApiService } from '../../shared/services/api.service';
 import { JobApplication, JobForm } from './models/job-application.model';
 
 @Component({

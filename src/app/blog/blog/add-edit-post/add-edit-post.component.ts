@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter, take } from 'rxjs/operators';
 import { Post, PostFormData } from '../../../shared/models/post.model';
+import { ValidationService } from '../../../shared/services/validation.service';
 import { BlogService } from '../../blog.service';
 
 @Component({
@@ -35,6 +36,10 @@ export class AddEditPostComponent implements OnInit {
     this.save(model);
   }
 
+  get formControls() {
+    return this.postForm.controls;
+  }
+
   private save(model: Post) {
     this.blogService
       .savePost(model)
@@ -60,10 +65,10 @@ export class AddEditPostComponent implements OnInit {
 
   private initForm() {
     this.postForm = this.fb.group({
-      title: [null],
-      body: [null],
+      title: [null, [Validators.required]],
+      body: [null, [Validators.required]],
       imageUrl: [this.imageUrlDropdown[0]],
-      topics: [null],
+      topics: [null, [Validators.required]],
     });
   }
 
