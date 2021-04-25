@@ -16,6 +16,11 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'edit/:id',
+    component: AddEditPostComponent,
+    pathMatch: 'full',
+  },
+  {
     path: ':id',
     component: PostDetailComponent,
     pathMatch: 'full',

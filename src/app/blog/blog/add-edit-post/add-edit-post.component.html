@@ -1,8 +1,25 @@
 <div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a [routerLink]="['/post']" href="#">All Posts</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        <span *ngIf="!isEditMode">Add post</span>
+        <span *ngIf="isEditMode">Edit post</span>
+      </li>
+    </ol>
+  </nav>
+
   <div class="row">
     <div class="col-5">
-      <h3>Add new post</h3>
-      <form [formGroup]="postForm" (ngSubmit)="onSubmit(postForm.value)">
+      <h3 *ngIf="!isEditMode">Add new post</h3>
+      <h3 *ngIf="isEditMode">Edit post</h3>
+      <form
+        [formGroup]="postForm"
+        (ngSubmit)="onSubmit(postForm.value)"
+        *ngIf="postForm"
+      >
         <div class="form-group">
           <label>Title</label>
           <input formControlName="title" type="text" class="form-control" />
@@ -62,11 +79,15 @@
           </div>
         </div>
 
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary" type="submit">
+          <span *ngIf="!isEditMode">Submit</span>
+          <span *ngIf="isEditMode">Update</span>
+        </button>
       </form>
     </div>
   </div>
   <div *ngIf="savedSuccess" class="alert alert-success mt-4" role="alert">
-    Post saved successfully!!!
+    <span *ngIf="!isEditMode">Post saved successfully!!!</span>
+    <span *ngIf="isEditMode">Post updated successfully!!!</span>
   </div>
 </div>

@@ -16,6 +16,10 @@ export class AddEditPostComponent implements OnInit {
   imageUrlDropdown: number[] = [];
   savedSuccess: boolean;
 
+  isEditMode: boolean;
+  postId: number;
+  selectedPost: Post;
+
   constructor(
     private fb: FormBuilder,
     private blogService: BlogService,
@@ -24,8 +28,28 @@ export class AddEditPostComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.initImageUrlDropdown();
-    this.initForm();
+    this.postId = this.route.snapshot.params['id'];
+    if (this.postId) {
+      this.isEditMode = true;
+    }
+
+    if (this.isEditMode) {
+      this.getSelectedPostData(this.postId);
+    } else {
+      this.initImageUrlDropdown();
+      this.initForm();
+    }
+  }
+
+  private getSelectedPostData(postId: number) {
+    this.blogService
+      .getPostById(postId)
+      .pipe(take(1))
+      .subscribe((post: Post) => {
+        this.selectedPost = post;
+        this.initImageUrlDropdown();
+        this.initForm();
+      });
   }
 
   onSubmit(formData: PostFormData) {
@@ -33,7 +57,25 @@ export class AddEditPostComponent implements OnInit {
       return;
     }
     const model = this.mapModel(formData);
-    this.save(model);
+
+    !this.isEditMode ? this.save(model) : this.update(this.postId, model);
+  }
+
+  update(postId: number, model: Post) {
+    this.blogService
+      .updatePost(postId, model)
+      .pipe(take(1))
+      .subscribe((result) => {
+        if (result) {
+          this.postForm.reset();
+          this.blogService.getPosts(1, 3);
+          this.savedSuccess = true;
+          setTimeout(() => {
+            this.savedSuccess = false;
+            this.router.navigate(['../../'], { relativeTo: this.route });
+          }, 3000);
+        }
+      });
   }
 
   get formControls() {
@@ -65,10 +107,23 @@ export class AddEditPostComponent implements OnInit {
 
   private initForm() {
     this.postForm = this.fb.group({
-      title: [null, [Validators.required]],
-      body: [null, [Validators.required]],
-      imageUrl: [this.imageUrlDropdown[0]],
-      topics: [null, [Validators.required]],
+      title: [
+        this.isEditMode ? this.selectedPost.title : null,
+        [Validators.required],
+      ],
+      body: [
+        this.isEditMode ? this.selectedPost.body : null,
+        [Validators.required],
+      ],
+      imageUrl: [
+        this.isEditMode
+          ? +this.selectedPost.imageUrl.slice(25, 29)
+          : this.imageUrlDropdown[0],
+      ],
+      topics: [
+        this.isEditMode ? this.selectedPost.topics.join(',') : null,
+        [Validators.required],
+      ],
     });
   }
 

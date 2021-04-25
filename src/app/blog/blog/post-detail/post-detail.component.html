@@ -21,12 +21,22 @@
       <div>Created on: {{ postDetails.createdDate }}</div>
     </div>
 
-    <div class="topics mb-2">
-      <span
-        *ngFor="let topic of postDetails.topics"
-        class="badge badge-primary mr-1"
-        >{{ topic | uppercase }}</span
-      >
+    <div class="topics mb-2 d-flex justify-content-between">
+      <div>
+        <span
+          *ngFor="let topic of postDetails.topics"
+          class="badge badge-primary mr-1"
+          >{{ topic | uppercase }}</span
+        >
+      </div>
+      <div>
+        <app-rating [rating]="postDetails.rating"></app-rating>
+        <span class="mx-2">|</span>
+        <span (click)="likePost(postDetails.id)">
+          <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+          {{ postDetails.rating }}
+        </span>
+      </div>
     </div>
     <div class="body">
       <p>{{ postDetails.body }}</p>

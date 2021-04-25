@@ -29,6 +29,16 @@ export class ApiService {
     });
   }
 
+  patch(apiRoute: string, data: any) {
+    return this.http.patch(
+      `${this.url + apiRoute}`,
+      { data },
+      {
+        headers: this.getHttpHeaders(),
+      }
+    );
+  }
+
   delete(apiRoute: string) {
     return this.http.delete(`${this.url + apiRoute}`, {
       headers: this.getHttpHeaders(),

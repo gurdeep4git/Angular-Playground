@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ApiService } from '../../../shared/services/api.service';
 import { Post } from '../../../shared/models/post.model';
+import { BlogService } from '../../blog.service';
 
 @Component({
   selector: 'app-post-detail',
@@ -12,7 +13,11 @@ export class PostDetailComponent implements OnInit {
   postId: number;
   postDetails: Post;
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private apiService: ApiService,
+    private blogService: BlogService
+  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: Params) => {
@@ -20,18 +25,30 @@ export class PostDetailComponent implements OnInit {
     });
 
     this.getPostDetails();
+
+    this.blogService.postsDetails$.subscribe((postDetails: Post) => {
+      this.postDetails = postDetails;
+    });
   }
 
   getPostDetails() {
     this.apiService
       .get(`/posts/${this.postId}?_embed=comments`)
       .subscribe((postDetails: Post) => {
-        console.log(postDetails);
-        this.postDetails = postDetails;
+        this.blogService.updatePostDetailsSource(postDetails);
       });
   }
 
   getImageUrl() {
     return `url(${this.postDetails.imageUrl})`;
+  }
+
+  likePost(postId: number) {
+    this.postDetails.rating = this.postDetails.rating + 1;
+    this.blogService
+      .likePost(postId, this.postDetails)
+      .subscribe((postDetails: Post) => {
+        this.blogService.updatePostDetailsSource(postDetails);
+      });
   }
 }

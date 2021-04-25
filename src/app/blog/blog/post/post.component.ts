@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from '../../../shared/models/post.model';
+import { BlogService } from '../../blog.service';
 
 @Component({
   selector: 'app-post',
@@ -9,7 +10,10 @@ import { Post } from '../../../shared/models/post.model';
 export class PostComponent implements OnInit {
   @Input() posts: Post[];
   @Input() isSidePost: boolean = false;
-  constructor() {}
+
+  constructor(private blogService: BlogService) {}
 
   ngOnInit(): void {}
+
+  onDelete(postId: number) {}
 }
