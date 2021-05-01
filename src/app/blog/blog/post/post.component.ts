@@ -1,4 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  TemplateRef,
+} from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { pipe } from 'rxjs';
+import { take } from 'rxjs/operators';
+import { ConfirmationModalComponent } from '../../../shared/components/confirmation-modal/confirmation-modal.component';
+import { ConfirmationModalConfiguration } from '../../../shared/models/confirmationModal.model';
 import { Post } from '../../../shared/models/post.model';
 import { BlogService } from '../../blog.service';
 
@@ -11,9 +23,35 @@ export class PostComponent implements OnInit {
   @Input() posts: Post[];
   @Input() isSidePost: boolean = false;
 
-  constructor(private blogService: BlogService) {}
+  modalRef: BsModalRef;
+
+  constructor(
+    private modalService: BsModalService,
+    private blogService: BlogService
+  ) {}
 
   ngOnInit(): void {}
 
-  onDelete(postId: number) {}
+  onDelete(post: Post) {
+    const initialState: ConfirmationModalConfiguration = {
+      title: `Delete ${post.title}`,
+      primaryButtonTitle: 'Yes',
+      secondaryButtonTitle: 'No',
+      callback: this.deletePost.bind(this, post.id),
+    };
+
+    this.modalRef = this.modalService.show(ConfirmationModalComponent, {
+      initialState,
+    });
+  }
+
+  deletePost(postId: number) {
+    this.blogService
+      .deletePost(postId)
+      .pipe(take(1))
+      .subscribe((res) => {
+        this.blogService.getPosts(1, 3);
+        this.modalRef.hide();
+      });
+  }
 }

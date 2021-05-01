@@ -54,4 +54,8 @@ export class BlogService {
   public likePost(postId: number, post: Post): Observable<unknown> {
     return this.apiService.put(`/posts/${postId}`, post);
   }
+
+  public deletePost(postId: number): Observable<unknown> {
+    return this.apiService.delete(`/posts/${postId}`);
+  }
 }

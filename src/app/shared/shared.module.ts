@@ -4,11 +4,23 @@ import { SkeletonLoaderComponent } from './../shared/components/skeleton-loader/
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
 import { ApiService } from './services/api.service';
 import { ValidationService } from './services/validation.service';
+import { FullscreenComponent } from './components/fullscreen/fullscreen.component';
+import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 
 @NgModule({
-  declarations: [SkeletonLoaderComponent, ErrorMessageComponent],
+  declarations: [
+    SkeletonLoaderComponent,
+    ErrorMessageComponent,
+    FullscreenComponent,
+    ConfirmationModalComponent,
+  ],
   imports: [CommonModule],
-  exports: [SkeletonLoaderComponent, ErrorMessageComponent],
+  exports: [
+    SkeletonLoaderComponent,
+    ErrorMessageComponent,
+    FullscreenComponent,
+    ConfirmationModalComponent,
+  ],
   providers: [ApiService, ValidationService],
 })
 export class SharedModule {}

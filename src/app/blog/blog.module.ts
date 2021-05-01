@@ -9,7 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { BlogService } from './blog.service';
 import { AddEditPostComponent } from './blog/add-edit-post/add-edit-post.component';
 
-import { ModalModule } from 'ngx-bootstrap/modal';
+import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { RatingComponent } from './blog/post-detail/rating/rating.component';
 
 @NgModule({
@@ -27,6 +27,6 @@ import { RatingComponent } from './blog/post-detail/rating/rating.component';
     BlogRoutingModule,
     ModalModule.forRoot(),
   ],
-  providers: [BlogService],
+  providers: [BlogService, BsModalService],
 })
 export class BlogModule {}

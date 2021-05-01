@@ -35,7 +35,7 @@
       "body": "This is body of third blog",
       "imageUrl": "https://picsum.photos/id/1020/500/500",
       "createdDate": "February 11, 2021",
-      "rating": 1,
+      "rating": 10,
       "topics": [
         "js",
         "web"
@@ -48,14 +48,14 @@
       "userId": 1,
       "title": "Fourth Blog",
       "body": "This is body of fourth blog",
-      "imageUrl": "https://picsum.photos/id/1028/500/500",
-      "createdDate": "April 20, 2021",
-      "rating": 5,
+      "imageUrl": "https://picsum.photos/id/1039/500/500",
+      "createdDate": "May 1, 2021",
       "topics": [
         "js",
         "web"
       ],
-      "sortOrder": 4
+      "rating": 0,
+      "sortOrder": 7
     },
     {
       "id": 5,
@@ -64,52 +64,27 @@
       "body": "This is body of fifth blog",
       "imageUrl": "https://picsum.photos/id/1002/500/500",
       "createdDate": "April 22, 2021",
-      "rating": 4,
+      "rating": 6,
       "topics": [
         "js",
         "web"
       ],
-      "sortOrder": 5
-    },
-    {
-      "id": 39,
-      "userId": 1,
-      "title": "Test",
-      "body": "Tersdr",
-      "imageUrl": "https://picsum.photos/id/1001/500/500",
-      "createdDate": "April 23, 2021",
-      "topics": [
-        "Tesrt"
-      ],
-      "rating": 0,
-      "sortOrder": 6
-    },
-    {
-      "id": 66,
-      "userId": 1,
-      "title": "ASDF",
-      "body": "ASDASd",
-      "imageUrl": "https://picsum.photos/id/1001/500/500",
-      "createdDate": "April 23, 2021",
-      "topics": [
-        "ASFS"
-      ],
-      "rating": 8,
-      "sortOrder": 7,
+      "sortOrder": 5,
       "comments": []
     },
     {
-      "id": 59,
+      "id": 89,
       "userId": 1,
-      "title": "Test",
-      "body": "Test",
-      "imageUrl": "https://picsum.photos/id/1011/500/500",
-      "createdDate": "April 24, 2021",
+      "title": "JSON Server",
+      "body": "A POST, PUT or PATCH request should include a Content-Type: application/json header to use the JSON in the request body. Otherwise it will return a 2XX status code, but without changes being made to the data.",
+      "imageUrl": "https://picsum.photos/id/1015/500/500",
+      "createdDate": "May 1, 2021",
       "topics": [
-        "test"
+        "JS",
+        " JSON"
       ],
-      "rating": 20,
-      "sortOrder": 8,
+      "rating": 16,
+      "sortOrder": 6,
       "comments": []
     }
   ],

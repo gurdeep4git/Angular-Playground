@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ApiService } from '../../shared/services/api.service';
 import { Post } from './../../shared/models/post.model';
 import { delay, tap } from 'rxjs/operators';
 import { BlogService } from '../blog.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-blog',
