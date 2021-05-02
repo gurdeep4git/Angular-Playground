@@ -1,4 +1,12 @@
 {
+  "users":[
+    {
+      "id":1,
+      "name":"John Doe",
+      "email":"jDoe@gmail.com",
+      "imageUrl":"https://picsum.photos/id/1040/500/500"
+    }
+  ],
   "posts": [
     {
       "id": 1,
@@ -40,8 +48,7 @@
         "js",
         "web"
       ],
-      "sortOrder": 3,
-      "comments": []
+      "sortOrder": 3
     },
     {
       "id": 4,
@@ -69,8 +76,7 @@
         "js",
         "web"
       ],
-      "sortOrder": 5,
-      "comments": []
+      "sortOrder": 5
     },
     {
       "id": 89,
@@ -84,25 +90,66 @@
         " JSON"
       ],
       "rating": 16,
-      "sortOrder": 6,
-      "comments": []
+      "sortOrder": 6
+    },
+    {
+      "id": 26,
+      "userId": 1,
+      "title": "Web development",
+      "body": "Web development",
+      "imageUrl": "https://picsum.photos/id/1012/500/500",
+      "createdDate": "May 2, 2021",
+      "topics": [
+        "TS",
+        "JS",
+        "CSS"
+      ],
+      "rating": 0,
+      "sortOrder": 9
     }
   ],
   "comments": [
     {
       "id": 1,
       "postId": 1,
+      "userId":1,
       "body": "This is a comment 1"
     },
     {
       "id": 2,
       "postId": 2,
+      "userId":1,
       "body": "This is a comment 2"
     },
     {
       "id": 3,
       "postId": 2,
+      "userId":1,
       "body": "This is a comment 2.1"
+    },
+    {
+      "id": 82,
+      "postId": 26,
+      "userId":1,
+      "body": "Test comment"
+    },
+    {
+      "id": 61,
+      "postId": 26,
+      "userId":1,
+      "body": "Nice post on web development"
+    },
+    {
+      "id": 9,
+      "postId": 26,
+      "userId":1,
+      "body": "Ahh!!\nNice work man"
+    },
+    {
+      "id": 83,
+      "postId": 89,
+      "userId":1,
+      "body": "Nice post"
     }
   ]
 }

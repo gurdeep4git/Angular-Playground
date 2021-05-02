@@ -24,19 +24,11 @@ export class PostDetailComponent implements OnInit {
       this.postId = +params.params.id;
     });
 
-    this.getPostDetails();
+    this.blogService.getPostDetails(this.postId);
 
     this.blogService.postsDetails$.subscribe((postDetails: Post) => {
       this.postDetails = postDetails;
     });
-  }
-
-  getPostDetails() {
-    this.apiService
-      .get(`/posts/${this.postId}?_embed=comments`)
-      .subscribe((postDetails: Post) => {
-        this.blogService.updatePostDetailsSource(postDetails);
-      });
   }
 
   getImageUrl() {

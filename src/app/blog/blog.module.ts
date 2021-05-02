@@ -11,6 +11,7 @@ import { AddEditPostComponent } from './blog/add-edit-post/add-edit-post.compone
 
 import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { RatingComponent } from './blog/post-detail/rating/rating.component';
+import { AddEditCommentComponent } from './blog/post-detail/add-edit-comment/add-edit-comment.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RatingComponent } from './blog/post-detail/rating/rating.component';
     PostDetailComponent,
     AddEditPostComponent,
     RatingComponent,
+    AddEditCommentComponent,
   ],
   imports: [
     CommonModule,

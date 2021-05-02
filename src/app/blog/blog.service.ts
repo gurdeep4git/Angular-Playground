@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ApiService } from '../shared/services/api.service';
-import { Post } from '../shared/models/post.model';
+import { Comment, Post } from '../shared/models/post.model';
 
 @Injectable()
 export class BlogService {
@@ -39,6 +39,14 @@ export class BlogService {
       .subscribe((posts: Post[]) => this.updatePostsSource(posts));
   }
 
+  public getPostDetails(postId: number) {
+    this.apiService
+      .get(`/posts/${postId}?_embed=comments`)
+      .subscribe((postDetails: Post) => {
+        this.updatePostDetailsSource(postDetails);
+      });
+  }
+
   public savePost(post: Post): Observable<unknown> {
     return this.apiService.post(`/posts`, post);
   }
@@ -57,5 +65,9 @@ export class BlogService {
 
   public deletePost(postId: number): Observable<unknown> {
     return this.apiService.delete(`/posts/${postId}`);
+  }
+
+  public addComment(comment: Comment): Observable<unknown> {
+    return this.apiService.post(`/comments`, comment);
   }
 }

@@ -14,6 +14,7 @@ export class Post {
 export class Comment {
   id: number;
   postId: number;
+  userId: number;
   body: string;
 }
 

@@ -42,22 +42,27 @@
       <p>{{ postDetails.body }}</p>
     </div>
 
-    <div *ngIf="postDetails.comments && postDetails.comments.length > 0">
+    <div>
       <h5>Comments</h5>
-      <ng-container *ngFor="let comment of postDetails.comments">
-        <div class="media">
-          <img
-            width="50"
-            [src]="postDetails.imageUrl"
-            class="rounded-circle mr-3"
-            alt="user"
-          />
-          <div class="media-body">
-            <h6 class="mt-0">user name</h6>
-            <p>{{ comment.body }}</p>
+      <ng-container
+        *ngIf="postDetails.comments && postDetails.comments.length > 0"
+      >
+        <ng-container *ngFor="let comment of postDetails.comments">
+          <div class="media">
+            <img
+              width="50"
+              [src]="postDetails.imageUrl"
+              class="rounded-circle mr-3"
+              alt="user"
+            />
+            <div class="media-body">
+              <h6 class="mt-0">user name</h6>
+              <p>{{ comment.body }}</p>
+            </div>
           </div>
-        </div>
+        </ng-container>
       </ng-container>
+      <app-add-edit-comment [postId]="postId"></app-add-edit-comment>
     </div>
   </div>
 </ng-container>
