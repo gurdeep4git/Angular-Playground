@@ -47,12 +47,13 @@ export class AddEditCommentComponent implements OnInit {
   mapModel(data: any) {
     const comment = new Comment();
     comment.id = this.getRandomId();
+    comment.userId = 1;
     comment.postId = this.postId;
     comment.body = data.comment;
     return comment;
   }
 
   private getRandomId(): number {
-    return Math.floor(Math.random() * (100 - 1) + 1);
+    return Math.floor(Math.random() * (1000 - 1) + 1);
   }
 }

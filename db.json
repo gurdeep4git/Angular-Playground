@@ -1,10 +1,10 @@
 {
-  "users":[
+  "users": [
     {
-      "id":1,
-      "name":"John Doe",
-      "email":"jDoe@gmail.com",
-      "imageUrl":"https://picsum.photos/id/1040/500/500"
+      "id": 1,
+      "name": "John Doe",
+      "email": "jDoe@gmail.com",
+      "imageUrl": "https://picsum.photos/id/1040/500/500"
     }
   ],
   "posts": [
@@ -112,44 +112,74 @@
     {
       "id": 1,
       "postId": 1,
-      "userId":1,
+      "userId": 1,
       "body": "This is a comment 1"
     },
     {
       "id": 2,
       "postId": 2,
-      "userId":1,
+      "userId": 1,
       "body": "This is a comment 2"
     },
     {
       "id": 3,
       "postId": 2,
-      "userId":1,
+      "userId": 1,
       "body": "This is a comment 2.1"
     },
     {
       "id": 82,
       "postId": 26,
-      "userId":1,
+      "userId": 1,
       "body": "Test comment"
     },
     {
       "id": 61,
       "postId": 26,
-      "userId":1,
+      "userId": 1,
       "body": "Nice post on web development"
     },
     {
       "id": 9,
       "postId": 26,
-      "userId":1,
+      "userId": 1,
       "body": "Ahh!!\nNice work man"
     },
     {
       "id": 83,
       "postId": 89,
-      "userId":1,
+      "userId": 1,
       "body": "Nice post"
+    },
+    {
+      "id": 72,
+      "postId": 89,
+      "userId": 1,
+      "body": "Good write on JSON server"
+    },
+    {
+      "id": 7,
+      "userId": 1,
+      "postId": 89,
+      "body": "Nice Work"
+    },
+    {
+      "id": 13,
+      "userId": 1,
+      "postId": 89,
+      "body": "Test"
+    },
+    {
+      "id": 866,
+      "userId": 1,
+      "postId": 2,
+      "body": "Teeds"
+    },
+    {
+      "id": 626,
+      "userId": 1,
+      "postId": 2,
+      "body": "SRfdxxcbj"
     }
   ]
 }
