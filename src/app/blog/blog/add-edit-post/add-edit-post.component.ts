@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter, take } from 'rxjs/operators';
 import { Post, PostFormData } from '../../../shared/models/post.model';
+import { StateService } from '../../../shared/services/state.service';
 import { ValidationService } from '../../../shared/services/validation.service';
 import { BlogService } from '../../blog.service';
 
@@ -24,7 +25,8 @@ export class AddEditPostComponent implements OnInit {
     private fb: FormBuilder,
     private blogService: BlogService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private stateService: StateService
   ) {}
 
   ngOnInit(): void {
@@ -68,7 +70,10 @@ export class AddEditPostComponent implements OnInit {
       .subscribe((result) => {
         if (result) {
           this.postForm.reset();
-          this.blogService.getPosts(1, 3);
+          this.blogService.getPosts(
+            this.blogService.page,
+            this.blogService.limit
+          );
           this.savedSuccess = true;
           setTimeout(() => {
             this.savedSuccess = false;
@@ -89,7 +94,10 @@ export class AddEditPostComponent implements OnInit {
       .subscribe((result) => {
         if (result) {
           this.postForm.reset();
-          this.blogService.getPosts(1, 3);
+          this.blogService.getPosts(
+            this.blogService.page,
+            this.blogService.limit
+          );
           this.savedSuccess = true;
           setTimeout(() => {
             this.savedSuccess = false;
@@ -128,9 +136,10 @@ export class AddEditPostComponent implements OnInit {
   }
 
   private mapModel(formData: PostFormData): Post {
+    const user = this.stateService.getLoggedInUser();
     const post = new Post();
     post.id = this.getRandomId();
-    post.userId = 1;
+    post.userId = user.id;
     post.title = formData.title;
     post.body = formData.body;
     post.imageUrl = this.getImageUrl(+formData.imageUrl);

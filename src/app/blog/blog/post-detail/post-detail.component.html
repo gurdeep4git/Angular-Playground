@@ -51,12 +51,15 @@
           <div class="media">
             <img
               width="50"
-              [src]="postDetails.imageUrl"
+              [src]="comment.user.imageUrl"
               class="rounded-circle mr-3"
               alt="user"
             />
             <div class="media-body">
-              <h6 class="mt-0">user name</h6>
+              <h6 class="mt-0">
+                {{ comment.user.name }} (<small>{{ comment.user.email }}</small
+                >)
+              </h6>
               <p>{{ comment.body }}</p>
             </div>
           </div>

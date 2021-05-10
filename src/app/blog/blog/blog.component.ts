@@ -11,8 +11,9 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
   styleUrls: ['./blog.component.scss'],
 })
 export class BlogComponent implements OnInit {
-  page = 1;
-  limit = 3;
+  page: number;
+  limit: number;
+  backDays: number = 10;
 
   noMorePosts: boolean;
   isLoading: boolean;
@@ -27,6 +28,9 @@ export class BlogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.page = this.blogService.page;
+    this.limit = this.blogService.limit;
+
     this.getPosts();
   }
 
@@ -70,11 +74,11 @@ export class BlogComponent implements OnInit {
   }
 
   private getPopularPosts(posts: Post[]): Post[] {
-    return posts.filter((p) => p.rating >= 4).splice(0, 3);
+    return posts.filter((p) => p.rating >= 3).splice(0, 3);
   }
 
   private getRecentPosts(posts: Post[]): Post[] {
-    const backDate = this.getBackDate(3);
+    const backDate = this.getBackDate(this.backDays);
 
     return posts
       .filter((p) => {

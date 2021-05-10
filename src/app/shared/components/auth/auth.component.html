@@ -1,0 +1,102 @@
+<div class="auth-container">
+  <div class="auth-box">
+    <div
+      *ngIf="!validUser && loginSubmit"
+      class="alert alert-danger mb-4"
+      role="alert"
+    >
+      <span>User not found, please try again</span>
+    </div>
+    <div>
+      <tabset [justified]="true">
+        <tab heading="Sign In">
+          <div class="tab-content" (selectTab)="onSelectTab()">
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
+              <div class="form-group">
+                <label class="form-label">Email</label>
+                <input
+                  formControlName="loginEmail"
+                  type="text"
+                  class="form-control"
+                />
+                <app-error-message
+                  [control]="loginForm.get('loginEmail')"
+                ></app-error-message>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Password</label>
+                <input
+                  formControlName="loginPassword"
+                  type="password"
+                  class="form-control"
+                />
+                <app-error-message
+                  [control]="loginForm.get('loginPassword')"
+                ></app-error-message>
+              </div>
+              <div class="form-group text-right">
+                <button class="btn btn-primary" type="submit">Login</button>
+              </div>
+            </form>
+          </div>
+        </tab>
+        <tab heading="Sign up" (selectTab)="onSelectTab()">
+          <div class="tab-content">
+            <form
+              [formGroup]="signUpForm"
+              (ngSubmit)="onSignUpSubmit(signUpForm.value)"
+            >
+              <div class="form-group">
+                <label class="form-label">Name</label>
+                <input
+                  formControlName="name"
+                  type="text"
+                  class="form-control"
+                />
+                <app-error-message
+                  [control]="signUpForm.get('name')"
+                ></app-error-message>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email</label>
+                <input
+                  formControlName="email"
+                  type="text"
+                  class="form-control"
+                />
+                <app-error-message
+                  [control]="signUpForm.get('email')"
+                ></app-error-message>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Password</label>
+                <input
+                  formControlName="password"
+                  type="password"
+                  class="form-control"
+                />
+                <app-error-message
+                  [control]="signUpForm.get('password')"
+                ></app-error-message>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Confirm Password</label>
+                <input
+                  formControlName="confirmPassword"
+                  type="password"
+                  class="form-control"
+                />
+                <app-error-message
+                  [control]="signUpForm.get('confirmPassword')"
+                ></app-error-message>
+              </div>
+              <div class="form-group text-right">
+                <button class="btn btn-primary" type="submit">Register</button>
+              </div>
+            </form>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>

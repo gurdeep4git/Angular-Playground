@@ -1,0 +1,17 @@
+.auth-container {
+  position: relative;
+  height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .auth-box {
+    width: 400px;
+  }
+
+  .tab-content {
+    background-color: #ffffff;
+    padding: 12px;
+    border: 1px solid #dee2e6;
+  }
+}

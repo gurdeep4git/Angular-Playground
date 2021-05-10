@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Comment } from '../../../../shared/models/post.model';
+import { StateService } from '../../../../shared/services/state.service';
 import { BlogService } from '../../../blog.service';
 
 @Component({
@@ -12,7 +13,11 @@ export class AddEditCommentComponent implements OnInit {
   commentForm: FormGroup;
   @Input() postId: number;
 
-  constructor(private fb: FormBuilder, private blogService: BlogService) {}
+  constructor(
+    private fb: FormBuilder,
+    private blogService: BlogService,
+    private stateService: StateService
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -45,9 +50,10 @@ export class AddEditCommentComponent implements OnInit {
   }
 
   mapModel(data: any) {
+    const user = this.stateService.getLoggedInUser();
     const comment = new Comment();
     comment.id = this.getRandomId();
-    comment.userId = 1;
+    comment.userId = user.id;
     comment.postId = this.postId;
     comment.body = data.comment;
     return comment;

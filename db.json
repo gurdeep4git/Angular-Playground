@@ -5,6 +5,32 @@
       "name": "John Doe",
       "email": "jDoe@gmail.com",
       "imageUrl": "https://picsum.photos/id/1040/500/500"
+    },
+    {
+      "id": 2,
+      "name": "William",
+      "email": "will@gmail.com",
+      "imageUrl": "https://picsum.photos/id/1020/500/500"
+    },
+    {
+      "id": 3,
+      "name": "Cindy",
+      "email": "cindy@gmail.com",
+      "imageUrl": "https://picsum.photos/id/1006/500/500"
+    },
+    {
+      "id": 129,
+      "name": "Gurdeep Singh",
+      "email": "gurdeep.singh@gmail.com",
+      "password": "qwerty123",
+      "imageUrl": ""
+    },
+    {
+      "id": 383,
+      "name": "Garry",
+      "email": "this.is.garry@gmail.com",
+      "password": "asd123",
+      "imageUrl": ""
     }
   ],
   "posts": [
@@ -106,6 +132,73 @@
       ],
       "rating": 0,
       "sortOrder": 9
+    },
+    {
+      "0": {
+        "id": 575,
+        "userId": 1,
+        "postId": 37,
+        "body": "That what a glacier is!!!",
+        "user": {
+          "id": 1,
+          "name": "John Doe",
+          "email": "jDoe@gmail.com",
+          "imageUrl": "https://picsum.photos/id/1040/500/500"
+        }
+      },
+      "id": 37,
+      "userId": 1,
+      "title": "Random Post",
+      "body": "Random Post on any topic",
+      "imageUrl": "https://picsum.photos/id/1036/500/500",
+      "createdDate": "May 8, 2021",
+      "topics": [
+        "Random",
+        "Test",
+        "New "
+      ],
+      "rating": 6,
+      "sortOrder": 10,
+      "comments": [
+        {
+          "id": 575,
+          "userId": 1,
+          "postId": 37,
+          "body": "That what a glacier is!!!",
+          "user": {
+            "id": 1,
+            "name": "John Doe",
+            "email": "jDoe@gmail.com",
+            "imageUrl": "https://picsum.photos/id/1040/500/500"
+          }
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "userId": 1,
+      "title": "A New Post",
+      "body": "Test Body",
+      "imageUrl": "https://picsum.photos/id/1038/500/500",
+      "createdDate": "May 10, 2021",
+      "topics": [
+        "Test"
+      ],
+      "rating": 0,
+      "sortOrder": 11
+    },
+    {
+      "id": 86,
+      "userId": 129,
+      "title": "New Post 123",
+      "body": "Test",
+      "imageUrl": "https://picsum.photos/id/1037/500/500",
+      "createdDate": "May 10, 2021",
+      "topics": [
+        "Test"
+      ],
+      "rating": 0,
+      "sortOrder": 12
     }
   ],
   "comments": [
@@ -136,13 +229,13 @@
     {
       "id": 61,
       "postId": 26,
-      "userId": 1,
+      "userId": 2,
       "body": "Nice post on web development"
     },
     {
       "id": 9,
       "postId": 26,
-      "userId": 1,
+      "userId": 3,
       "body": "Ahh!!\nNice work man"
     },
     {
@@ -180,6 +273,42 @@
       "userId": 1,
       "postId": 2,
       "body": "SRfdxxcbj"
+    },
+    {
+      "id": 84,
+      "userId": 1,
+      "postId": 26,
+      "body": "Testing..."
+    },
+    {
+      "id": 230,
+      "userId": 1,
+      "postId": 4,
+      "body": "Awesome view of river and mountains"
+    },
+    {
+      "id": 575,
+      "userId": 1,
+      "postId": 37,
+      "body": "That what a glacier is!!!"
+    },
+    {
+      "id": 695,
+      "userId": 1,
+      "postId": 37,
+      "body": "Nice picture man"
+    },
+    {
+      "id": 126,
+      "userId": 129,
+      "postId": 86,
+      "body": "Nice View"
+    },
+    {
+      "id": 349,
+      "userId": 383,
+      "postId": 86,
+      "body": "Awesome!!!!"
     }
   ]
 }

@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
 import { ApiService } from '../shared/services/api.service';
 import { Comment, Post } from '../shared/models/post.model';
 
 @Injectable()
 export class BlogService {
+  public page = 1;
+  public limit = 5;
+
   public maxSortOrder: number = 0;
 
   private postsSource$ = new BehaviorSubject<Post[]>([]);
@@ -40,11 +43,36 @@ export class BlogService {
   }
 
   public getPostDetails(postId: number) {
-    this.apiService
-      .get(`/posts/${postId}?_embed=comments`)
-      .subscribe((postDetails: Post) => {
-        this.updatePostDetailsSource(postDetails);
+    const postDetails = this.apiService.get(`/posts/${postId}?_embed=comments`);
+    const comments = this.apiService.get(`/comments?_expand=user`);
+
+    forkJoin([postDetails, comments]).subscribe((res) => {
+      const postDetails = this.appendUsersInPost(res[0], res[1]);
+      this.updatePostDetailsSource(postDetails);
+    });
+
+    // this.apiService
+    //   .get(`/posts/${postId}?_embed=comments`)
+    //   .subscribe((postDetails: Post) => {
+    //     this.updatePostDetailsSource(postDetails);
+    //   });
+  }
+
+  private appendUsersInPost(postDetails: any, comments: any) {
+    const updatedComments = postDetails.comments.map((c: Comment) => {
+      return comments.filter((cc: Comment, i: number) => {
+        if (cc.id === c.id) {
+          //@ts-ignore
+          return (c['user'] = cc.user);
+        }
       });
+    });
+
+    updatedComments.map((com) => {
+      postDetails = { ...postDetails, ...com };
+    });
+
+    return postDetails;
   }
 
   public savePost(post: Post): Observable<unknown> {

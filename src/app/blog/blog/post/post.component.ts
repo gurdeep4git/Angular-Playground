@@ -50,7 +50,10 @@ export class PostComponent implements OnInit {
       .deletePost(postId)
       .pipe(take(1))
       .subscribe((res) => {
-        this.blogService.getPosts(1, 3);
+        this.blogService.getPosts(
+          this.blogService.page,
+          this.blogService.limit
+        );
         this.modalRef.hide();
       });
   }
