@@ -1,4 +1,6 @@
 <div class="fullscreen">
-  <header><i class="fa fa-times-circle"></i></header>
-  <main *ngTemplateOutlet="passedTemplate"></main>
+  <header><i (click)="close()" class="fa fa-times close-icon"></i></header>
+  <main>
+    <ng-container *ngTemplateOutlet="htmlTemplate"></ng-container>
+  </main>
 </div>

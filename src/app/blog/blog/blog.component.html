@@ -1,15 +1,30 @@
+<!-- [@fullscreenAnimation]="animationState" -->
+<app-fullscreen
+  *ngIf="isFullscreenShown$ | async"
+  [htmlTemplate]="filter"
+></app-fullscreen>
+
 <ng-container *ngIf="!isLoading; else loader">
   <div class="row">
     <div class="col-9">
       <div class="d-flex justify-content-between mb-3">
         <h4>Posts</h4>
-        <button
-          type="button"
-          class="btn btn-primary"
-          [routerLink]="['/post', 'add']"
-        >
-          New post
-        </button>
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary"
+            [routerLink]="['/post', 'add']"
+          >
+            New post
+          </button>
+          <button
+            (click)="openFullscreen()"
+            type="button"
+            class="btn btn-default ml-3"
+          >
+            Filters
+          </button>
+        </div>
       </div>
       <app-post [posts]="posts"></app-post>
       <div class="text-center">
@@ -40,4 +55,8 @@
 </ng-container>
 <ng-template #loader>
   <app-skeleton-loader></app-skeleton-loader>
+</ng-template>
+
+<ng-template #filter>
+  <app-filters></app-filters>
 </ng-template>

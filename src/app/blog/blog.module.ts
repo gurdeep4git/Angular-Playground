@@ -12,6 +12,7 @@ import { AddEditPostComponent } from './blog/add-edit-post/add-edit-post.compone
 import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { RatingComponent } from './blog/post-detail/rating/rating.component';
 import { AddEditCommentComponent } from './blog/post-detail/add-edit-comment/add-edit-comment.component';
+import { FiltersComponent } from './filters/filters.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AddEditCommentComponent } from './blog/post-detail/add-edit-comment/add
     AddEditPostComponent,
     RatingComponent,
     AddEditCommentComponent,
+    FiltersComponent,
   ],
   imports: [
     CommonModule,

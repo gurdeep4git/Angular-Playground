@@ -3,12 +3,36 @@ import { ApiService } from '../../shared/services/api.service';
 import { Post } from './../../shared/models/post.model';
 import { delay, tap } from 'rxjs/operators';
 import { BlogService } from '../blog.service';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-
+import { FullscreenService } from './../../shared/services/fullscreen.service';
+import { Observable } from 'rxjs/internal/Observable';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.scss'],
+  // animations: [
+  //   trigger('fullscreenAnimation', [
+  //     state(
+  //       'initial',
+  //       style({
+  //         top: '-100%',
+  //       })
+  //     ),
+  //     state(
+  //       'final',
+  //       style({
+  //         top: '0',
+  //       })
+  //     ),
+  //     transition('initial=>final', animate('1000ms')),
+  //   ]),
+  // ],
 })
 export class BlogComponent implements OnInit {
   page: number;
@@ -22,16 +46,29 @@ export class BlogComponent implements OnInit {
   recentPosts: Post[];
   popularPosts: Post[];
 
+  isFullscreenShown$: Observable<boolean>;
+  //animationState: string;
+
   constructor(
     private blogService: BlogService,
-    private apiService: ApiService
-  ) {}
+    private apiService: ApiService,
+    private fullscreenService: FullscreenService
+  ) {
+    this.isFullscreenShown$ = this.fullscreenService.isFullscreenShown$;
+  }
 
   ngOnInit(): void {
+    //this.animationState = 'initial';
     this.page = this.blogService.page;
     this.limit = this.blogService.limit;
 
     this.getPosts();
+  }
+
+  openFullscreen() {
+    // this.animationState =
+    //   this.animationState === 'initial' ? 'final' : 'initial';
+    this.fullscreenService.show();
   }
 
   loadMorePosts() {

@@ -188,6 +188,19 @@
       "sortOrder": 11
     },
     {
+      "0": {
+        "id": 349,
+        "userId": 383,
+        "postId": 86,
+        "body": "Awesome!!!!",
+        "user": {
+          "id": 383,
+          "name": "Garry",
+          "email": "this.is.garry@gmail.com",
+          "password": "asd123",
+          "imageUrl": ""
+        }
+      },
       "id": 86,
       "userId": 129,
       "title": "New Post 123",
@@ -197,8 +210,36 @@
       "topics": [
         "Test"
       ],
-      "rating": 0,
-      "sortOrder": 12
+      "rating": 14,
+      "sortOrder": 12,
+      "comments": [
+        {
+          "id": 126,
+          "userId": 129,
+          "postId": 86,
+          "body": "Nice View",
+          "user": {
+            "id": 129,
+            "name": "Gurdeep Singh",
+            "email": "gurdeep.singh@gmail.com",
+            "password": "qwerty123",
+            "imageUrl": ""
+          }
+        },
+        {
+          "id": 349,
+          "userId": 383,
+          "postId": 86,
+          "body": "Awesome!!!!",
+          "user": {
+            "id": 383,
+            "name": "Garry",
+            "email": "this.is.garry@gmail.com",
+            "password": "asd123",
+            "imageUrl": ""
+          }
+        }
+      ]
     }
   ],
   "comments": [
