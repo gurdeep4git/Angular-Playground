@@ -5,6 +5,8 @@ import {
   OnInit,
   TemplateRef,
   OnDestroy,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import { FullscreenService } from '../../services/fullscreen.service';
 
@@ -15,12 +17,18 @@ import { FullscreenService } from '../../services/fullscreen.service';
 })
 export class FullscreenComponent implements OnInit, OnDestroy {
   @Input() htmlTemplate: TemplateRef<ElementRef>;
+  @Output('fullscreenSubmit') fullscreenSubmit = new EventEmitter();
+
   constructor(private fullscreenService: FullscreenService) {}
 
   ngOnInit(): void {}
 
   close() {
     this.fullscreenService.hide();
+  }
+
+  onFullscreenSubmit(): void {
+    this.fullscreenSubmit.emit();
   }
 
   ngOnDestroy(): void {

@@ -24,8 +24,12 @@
         >
       </li>
     </ul>
-    <div>
-      <span class="navbar-text mr-3">
+    <div [ngStyle]="{ cursor: 'pointer' }">
+      <app-user-initial
+        [user]="loggedInUser"
+        [isNavbarParent]="true"
+      ></app-user-initial>
+      <span class="navbar-text mx-3">
         {{ loggedInUser.name }}
       </span>
       <span class="navbar-text" (click)="logout()">logout</span>

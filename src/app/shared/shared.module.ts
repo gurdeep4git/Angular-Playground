@@ -10,6 +10,7 @@ import { AuthComponent } from './components/auth/auth.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserInitialComponent } from './components/fullscreen/user-initial/user-initial.component';
 @NgModule({
   declarations: [
     SkeletonLoaderComponent,
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ConfirmationModalComponent,
     AuthComponent,
     NotFoundComponent,
+    UserInitialComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, TabsModule.forRoot()],
   exports: [
@@ -27,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ConfirmationModalComponent,
     AuthComponent,
     NotFoundComponent,
+    UserInitialComponent,
   ],
   providers: [ApiService, ValidationService],
 })

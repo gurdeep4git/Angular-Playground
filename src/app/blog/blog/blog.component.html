@@ -2,6 +2,7 @@
 <app-fullscreen
   *ngIf="isFullscreenShown$ | async"
   [htmlTemplate]="filter"
+  (fullscreenSubmit)="onFullscreenSubmit()"
 ></app-fullscreen>
 
 <ng-container *ngIf="!isLoading; else loader">

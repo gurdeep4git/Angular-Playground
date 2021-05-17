@@ -12,6 +12,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { OrderBy } from '../../shared/enums';
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
@@ -73,9 +74,12 @@ export class BlogComponent implements OnInit {
 
   loadMorePosts() {
     this.page = this.page + 1;
+
+    const orderBy = this.getOrderBy();
+
     this.apiService
       .get(
-        `/posts?_page=${this.page}&_limit=${this.limit}&_sort=sortOrder&_order=desc`
+        `/posts?_page=${this.page}&_limit=${this.limit}&_sort=sortOrder&_order=${orderBy}`
       )
       .pipe()
       .subscribe((posts: Post[]) => {
@@ -90,12 +94,33 @@ export class BlogComponent implements OnInit {
       });
   }
 
+  onFullscreenSubmit(): void {
+    const orderBy = this.getOrderBy();
+
+    this.blogService.getPosts(this.page, this.limit, undefined, orderBy);
+    this.fullscreenService.hide();
+  }
+
+  private getOrderBy() {
+    let orderBy: string;
+    const order = this.blogService.orderByProperty;
+
+    if (order == OrderBy.Descending) {
+      orderBy = 'desc';
+    } else {
+      orderBy = 'asc';
+    }
+
+    return orderBy;
+  }
+
   private getPosts() {
     this.isLoading = true;
     this.blogService.getPosts(this.page, this.limit);
     this.blogService.posts$
       .pipe(
         tap((posts: Post[]) => {
+          this.isLoading = true;
           this.blogService.maxPostSortOrder = Math.max(
             ...posts.map((p) => p.sortOrder)
           );

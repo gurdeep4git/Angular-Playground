@@ -49,12 +49,7 @@
       >
         <ng-container *ngFor="let comment of postDetails.comments">
           <div class="media">
-            <img
-              width="50"
-              [src]="comment.user.imageUrl"
-              class="rounded-circle mr-3"
-              alt="user"
-            />
+            <app-user-initial [user]="comment.user"></app-user-initial>
             <div class="media-body">
               <h6 class="mt-0">
                 {{ comment.user.name }} (<small>{{ comment.user.email }}</small

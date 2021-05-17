@@ -1,1 +1,33 @@
-<p>filters works!</p>
+<div *ngIf="selectedOrder">
+  <div>
+    <span class="mr-5">Order By:</span>
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="orderOptions"
+        id="orderDescending"
+        [value]="orderBy.Descending"
+        (change)="onOrderByChange($event.target.value)"
+        [checked]="selectedOrder === orderBy.Descending"
+      />
+      <label class="form-check-label" for="orderDescending">{{
+        orderBy[orderBy.Descending]
+      }}</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="orderOptions"
+        id="orderAscending"
+        [value]="orderBy.Ascending"
+        (change)="onOrderByChange($event.target.value)"
+        [checked]="selectedOrder === orderBy.Ascending"
+      />
+      <label class="form-check-label" for="orderAscending">{{
+        orderBy[orderBy.Ascending]
+      }}</label>
+    </div>
+  </div>
+</div>

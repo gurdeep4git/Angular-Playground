@@ -1,4 +1,6 @@
 .fullscreen {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 0;
   left: 0;
@@ -7,7 +9,8 @@
   background-color: #ffffff;
   z-index: 1;
   header,
-  main {
+  main,
+  footer {
     padding: 15px;
   }
   header {
@@ -16,5 +19,13 @@
     .close-icon {
       font-size: 20px;
     }
+  }
+  main {
+    flex: 1;
+    overflow: auto;
+  }
+  footer {
+    text-align: center;
+    border-top: 1px solid #cdcdcd;
   }
 }
