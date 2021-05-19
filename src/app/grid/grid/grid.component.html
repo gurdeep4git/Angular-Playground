@@ -1,0 +1,13 @@
+<div class="grid-container">
+  <ng-container *ngFor="let card of cards">
+    <div
+      class="grid-item"
+      [ngStyle]="{
+        'grid-column': card.size[0] === 2 ? 'auto / span 2' : null,
+        'grid-row': card.size[1] === 2 ? 'auto / span 2' : null
+      }"
+    >
+      {{ card.id }} - {{ card.size[0] }} {{ card.size[1] }}
+    </div>
+  </ng-container>
+</div>

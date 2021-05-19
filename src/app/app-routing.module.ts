@@ -27,6 +27,10 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./blog/blog.module').then((m) => m.BlogModule),
   },
+  {
+    path: 'grid',
+    loadChildren: () => import('./grid/grid.module').then((m) => m.GridModule),
+  },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' },
 ];
