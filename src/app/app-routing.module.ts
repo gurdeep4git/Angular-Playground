@@ -31,6 +31,11 @@ const routes: Routes = [
     path: 'grid',
     loadChildren: () => import('./grid/grid.module').then((m) => m.GridModule),
   },
+  {
+    path: 'pokemon',
+    loadChildren: () =>
+      import('./pokemon/pokemon.module').then((m) => m.PokemonModule),
+  },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' },
 ];

@@ -17,8 +17,8 @@ export class ApiService {
     });
   }
 
-  get(apiRoute: string) {
-    return this.http.get(`${this.url + apiRoute}`, {
+  get(apiRoute: string, baseUrl = this.url) {
+    return this.http.get(`${baseUrl + apiRoute}`, {
       headers: this.getHttpHeaders(),
     });
   }
