@@ -11,3 +11,32 @@
     </div>
   </ng-container>
 </div>
+<hr />
+<div class="p-4 bg-white">
+  <ng-template
+    [ngTemplateOutlet]="cardTemplate"
+    [ngTemplateOutletContext]="getProduct()"
+  ></ng-template>
+  <br />
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button (click)="prevClick()" type="button" class="btn btn-secondary">
+      Prev
+    </button>
+    <button (click)="nextClick()" type="button" class="btn btn-secondary">
+      Next
+    </button>
+  </div>
+
+  <!-- -----When we have to loop on ng-template use this-----  -->
+  <!-- <ng-template ngFor let-data [ngForOf]="products">
+    <div class="card">
+      <div class="card-body">{{ data.name }} - {{ data.description }}</div>
+    </div>
+  </ng-template> -->
+</div>
+
+<ng-template #cardTemplate let-data="product">
+  <div class="card">
+    <div class="card-body">{{ data.name }} - {{ data.description }}</div>
+  </div>
+</ng-template>
