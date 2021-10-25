@@ -20,6 +20,6 @@ describe('SkeletonLoaderComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeDefined();
+    expect(component).toBeTruthy();
   });
 });

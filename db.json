@@ -102,7 +102,7 @@
       "body": "This is body of second blog",
       "imageUrl": "https://picsum.photos/id/1024/500/500",
       "createdDate": "March 01, 2021",
-      "rating": 18,
+      "rating": 6,
       "topics": [
         "js",
         "web"
@@ -243,18 +243,18 @@
         }
       },
       "id": 26,
-      "userId": 129,
+      "userId": 1,
       "title": "Web development",
       "body": "Web development",
       "imageUrl": "https://picsum.photos/id/1012/500/500",
-      "createdDate": "September 13, 2021",
+      "createdDate": "May 2, 2021",
       "topics": [
         "TS",
         "JS",
         "CSS"
       ],
-      "rating": 2,
-      "sortOrder": 10,
+      "rating": 10,
+      "sortOrder": 9,
       "comments": [
         {
           "id": 82,

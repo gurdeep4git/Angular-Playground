@@ -1,4 +1,3 @@
-import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GridComponent } from './grid.component';
@@ -23,11 +22,4 @@ describe('GridComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('Page title should be Grid', () => {
-    const titleDebugElement: DebugElement = fixture.debugElement;
-    const titleElement: HTMLElement = titleDebugElement.nativeElement;
-    const p = titleElement.querySelector('p');
-    expect(p.textContent).toEqual(component.title)
-  })
 });

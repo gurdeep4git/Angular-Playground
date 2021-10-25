@@ -7,6 +7,7 @@ import { HerosComponent } from './heros/heros.component';
 import { HeroItemComponent } from './heros/hero-item/hero-item.component';
 
 
+
 @NgModule({
   declarations: [GridComponent, HerosComponent, HeroItemComponent],
   imports: [
