@@ -1,0 +1,15 @@
+<a class="d-inline-block mb-3" [routerLink]="['../../']">Back</a>
+<ng-container *ngIf="productDetails">
+    <h4>{{productDetails.name}}</h4>
+
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link pl-0" [routerLink]="['overview']" routerLinkActive="active">Overview</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['specifications']" routerLinkActive="active">Specifications</a>
+        </li>
+    </ul>
+
+    <router-outlet></router-outlet>
+</ng-container>

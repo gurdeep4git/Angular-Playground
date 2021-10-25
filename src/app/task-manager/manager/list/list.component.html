@@ -1,0 +1,6 @@
+<div>
+    <ul>
+        <li [ngClass]="{'active': list.isActive}" *ngFor="let list of taskList" (click)="onTaskListClick(list.id)">
+            {{list.title}}</li>
+    </ul>
+</div>

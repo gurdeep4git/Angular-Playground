@@ -1,0 +1,13 @@
+<div class="bg-white p-4 custom-border">
+    <div
+        [ngStyle]="{'min-height': '300px', 'width': 'auto', 'border': '1px solid #cdcdcd', 'padding': '8px', 'position': 'relative'}">
+        <app-loader [isRelative]="true"></app-loader>
+        <div *ngIf="!!data && data.length > 0">
+            {{data | json}}
+        </div>
+    </div>
+    <button [class.btn-disabled]="!!data && data.length > 0" class="btn btn-primary mt-2"
+        (click)="getProductsData()">GET ELECTRONICS
+        PRODUCTS</button>
+    <button class="btn btn-secondary mt-2 ml-2" (click)="clearData()">CLEAR</button>
+</div>

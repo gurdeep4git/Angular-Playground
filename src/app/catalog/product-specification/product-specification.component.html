@@ -1,0 +1,10 @@
+<div class="mb-3">
+    <span class="mr-2">Available Sizes:</span>
+    <span class="badge badge-secondary mr-2" *ngFor="let size of productDetails.sizes">{{size}}</span>
+</div>
+
+<div>
+    <span class="mr-2">Colors Sizes:</span>
+    <span class="badge badge-secondary mr-2" [style.background-color]="color"
+        *ngFor="let color of productDetails.colors">{{color}}</span>
+</div>

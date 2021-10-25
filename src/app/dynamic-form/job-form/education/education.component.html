@@ -1,0 +1,50 @@
+<div [formGroup]="education">
+  <div class="mb-3">
+    <label class="form-label">Highest Qualificaation</label>
+    <input
+      formControlName="qualification"
+      required
+      type="text"
+      class="form-control"
+    />
+    <span
+      class="text-danger"
+      *ngIf="
+        education.controls.qualification.touched &&
+        education.controls.qualification.errors?.required
+      "
+      >Field is required</span
+    >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Institution</label>
+    <input
+      formControlName="institution"
+      required
+      type="text"
+      class="form-control"
+    />
+    <span
+      class="text-danger"
+      *ngIf="
+        education.controls.institution.touched &&
+        education.controls.institution.errors?.required
+      "
+      >Field is required</span
+    >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Graduated in (year)</label>
+    <input formControlName="year" required type="text" class="form-control" />
+    <span
+      class="text-danger"
+      *ngIf="
+        education.controls.year.touched &&
+        education.controls.year.errors?.required
+      "
+      >Field is required</span
+    >
+  </div>
+</div>

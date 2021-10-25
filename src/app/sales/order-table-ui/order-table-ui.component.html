@@ -1,0 +1,51 @@
+<table class="table table-borderless">
+    <thead class="thead-dark">
+        <tr>
+            <th></th>
+            <th scope="col">Order #</th>
+            <th scope="col">Name</th>
+            <!-- <th scope="col">Status</th> -->
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="orders.length !== 0; else noDataView">
+            <tr *ngFor="let order of orders">
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input custom-checkbox" type="checkbox" (change)="onChange($event)"
+                            [value]="order.id" [id]="'c' + order.id">
+                    </div>
+                </td>
+                <td scope="row">{{order.id}}</td>
+                <td appHighlight [searchedWord]="searchText" [content]="order" [classToApply]="'font-weight-bold'">
+                    {{order.title}}</td>
+                <!-- <td>
+                    <span *ngIf="order.status === orderStatus.Fulfilled"
+                        class="badge badge-pill badge-success">FULFILLED</span>
+                    <span *ngIf="order.status === orderStatus.Confirmed"
+                        class="badge badge-pill badge-primary">CONFIRMED</span>
+                    <span *ngIf="order.status === orderStatus.PartiallyShipped"
+                        class="badge badge-pill badge-warning">PARTIALLY SHIPPED</span>
+                </td> -->
+                <td>{{order.price | currency}}</td>
+                <td>{{order.description}}</td>
+                <td>
+                    <img width="100" [src]="order.image" />
+                </td>
+                <!-- <td><button (click)="markAsFulfilled(order.id)" *ngIf="order.status !== orderStatus.Fulfilled"
+                        class="btn btn-primary">Mark as
+                        fulfilled</button></td> -->
+
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+
+<ng-template #noDataView>
+    <tr>
+        <td colspan="4">No Data</td>
+    </tr>
+</ng-template>

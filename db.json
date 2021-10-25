@@ -1,0 +1,607 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "jDoe@gmail.com",
+      "imageUrl": "https://picsum.photos/id/1040/500/500"
+    },
+    {
+      "id": 2,
+      "name": "William",
+      "email": "will@gmail.com",
+      "imageUrl": "https://picsum.photos/id/1020/500/500"
+    },
+    {
+      "id": 3,
+      "name": "Cindy",
+      "email": "cindy@gmail.com",
+      "imageUrl": "https://picsum.photos/id/1006/500/500"
+    },
+    {
+      "id": 129,
+      "name": "Gurdeep Singh",
+      "email": "gurdeep.singh@gmail.com",
+      "password": "qwerty123",
+      "imageUrl": ""
+    },
+    {
+      "id": 383,
+      "name": "Garry",
+      "email": "this.is.garry@gmail.com",
+      "password": "asd123",
+      "imageUrl": ""
+    },
+    {
+      "id": 376,
+      "name": "James Smith",
+      "email": "jsmith@gmail.com",
+      "password": "qwerty123",
+      "imageUrl": ""
+    }
+  ],
+  "posts": [
+    {
+      "0": {
+        "id": 1,
+        "postId": 1,
+        "userId": 1,
+        "body": "This is a comment 1",
+        "user": {
+          "id": 1,
+          "name": "John Doe",
+          "email": "jDoe@gmail.com",
+          "imageUrl": "https://picsum.photos/id/1040/500/500"
+        }
+      },
+      "id": 1,
+      "userId": 129,
+      "title": "First Blog",
+      "body": "This is body of first blog",
+      "imageUrl": "https://picsum.photos/id/1028/500/500",
+      "createdDate": "July 6, 2021",
+      "topics": [
+        "html",
+        "css",
+        "js"
+      ],
+      "rating": 4,
+      "sortOrder": 7,
+      "comments": [
+        {
+          "id": 1,
+          "postId": 1,
+          "userId": 1,
+          "body": "This is a comment 1",
+          "user": {
+            "id": 1,
+            "name": "John Doe",
+            "email": "jDoe@gmail.com",
+            "imageUrl": "https://picsum.photos/id/1040/500/500"
+          }
+        }
+      ]
+    },
+    {
+      "0": {
+        "id": 170,
+        "userId": 129,
+        "postId": 2,
+        "body": "Tesr",
+        "user": {
+          "id": 129,
+          "name": "Gurdeep Singh",
+          "email": "gurdeep.singh@gmail.com",
+          "password": "qwerty123",
+          "imageUrl": ""
+        }
+      },
+      "id": 2,
+      "userId": 1,
+      "title": "Second Blog",
+      "body": "This is body of second blog",
+      "imageUrl": "https://picsum.photos/id/1024/500/500",
+      "createdDate": "March 01, 2021",
+      "rating": 18,
+      "topics": [
+        "js",
+        "web"
+      ],
+      "sortOrder": 2,
+      "comments": [
+        {
+          "id": 2,
+          "postId": 2,
+          "userId": 1,
+          "body": "This is a comment 2",
+          "user": {
+            "id": 1,
+            "name": "John Doe",
+            "email": "jDoe@gmail.com",
+            "imageUrl": "https://picsum.photos/id/1040/500/500"
+          }
+        },
+        {
+          "id": 3,
+          "postId": 2,
+          "userId": 1,
+          "body": "This is a comment 2.1",
+          "user": {
+            "id": 1,
+            "name": "John Doe",
+            "email": "jDoe@gmail.com",
+            "imageUrl": "https://picsum.photos/id/1040/500/500"
+          }
+        },
+        {
+          "id": 866,
+          "userId": 1,
+          "postId": 2,
+          "body": "Teeds",
+          "user": {
+            "id": 1,
+            "name": "John Doe",
+            "email": "jDoe@gmail.com",
+            "imageUrl": "https://picsum.photos/id/1040/500/500"
+          }
+        },
+        {
+          "id": 626,
+          "userId": 1,
+          "postId": 2,
+          "body": "SRfdxxcbj",
+          "user": {
+            "id": 1,
+            "name": "John Doe",
+            "email": "jDoe@gmail.com",
+            "imageUrl": "https://picsum.photos/id/1040/500/500"
+          }
+        },
+        {
+          "id": 170,
+          "userId": 129,
+          "postId": 2,
+          "body": "Tesr",
+          "user": {
+            "id": 129,
+            "name": "Gurdeep Singh",
+            "email": "gurdeep.singh@gmail.com",
+            "password": "qwerty123",
+            "imageUrl": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "title": "Third Blog",
+      "body": "This is body of third blog",
+      "imageUrl": "https://picsum.photos/id/1020/500/500",
+      "createdDate": "February 11, 2021",
+      "rating": 10,
+      "topics": [
+        "js",
+        "web"
+      ],
+      "sortOrder": 3
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "title": "Fourth Blog",
+      "body": "This is body of fourth blog",
+      "imageUrl": "https://picsum.photos/id/1039/500/500",
+      "createdDate": "May 1, 2021",
+      "topics": [
+        "js",
+        "web"
+      ],
+      "rating": 0,
+      "sortOrder": 7
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "title": "Fifth Blog",
+      "body": "This is body of fifth blog",
+      "imageUrl": "https://picsum.photos/id/1002/500/500",
+      "createdDate": "April 22, 2021",
+      "rating": 6,
+      "topics": [
+        "js",
+        "web"
+      ],
+      "sortOrder": 5
+    },
+    {
+      "id": 89,
+      "userId": 1,
+      "title": "JSON Server",
+      "body": "A POST, PUT or PATCH request should include a Content-Type: application/json header to use the JSON in the request body. Otherwise it will return a 2XX status code, but without changes being made to the data.",
+      "imageUrl": "https://picsum.photos/id/1015/500/500",
+      "createdDate": "May 1, 2021",
+      "topics": [
+        "JS",
+        " JSON"
+      ],
+      "rating": 16,
+      "sortOrder": 6
+    },
+    {
+      "0": {
+        "id": 177,
+        "userId": 129,
+        "postId": 26,
+        "body": "Test",
+        "user": {
+          "id": 129,
+          "name": "Gurdeep Singh",
+          "email": "gurdeep.singh@gmail.com",
+          "password": "qwerty123",
+          "imageUrl": ""
+        }
+      },
+      "id": 26,
+      "userId": 129,
+      "title": "Web development",
+      "body": "Web development",
+      "imageUrl": "https://picsum.photos/id/1012/500/500",
+      "createdDate": "September 13, 2021",
+      "topics": [
+        "TS",
+        "JS",
+        "CSS"
+      ],
+      "rating": 2,
+      "sortOrder": 10,
+      "comments": [
+        {
+          "id": 82,
+          "postId": 26,
+          "userId": 1,
+          "body": "Test comment",
+          "user": {
+            "id": 1,
+            "name": "John Doe",
+            "email": "jDoe@gmail.com",
+            "imageUrl": "https://picsum.photos/id/1040/500/500"
+          }
+        },
+        {
+          "id": 61,
+          "postId": 26,
+          "userId": 2,
+          "body": "Nice post on web development",
+          "user": {
+            "id": 2,
+            "name": "William",
+            "email": "will@gmail.com",
+            "imageUrl": "https://picsum.photos/id/1020/500/500"
+          }
+        },
+        {
+          "id": 9,
+          "postId": 26,
+          "userId": 3,
+          "body": "Ahh!!\nNice work man",
+          "user": {
+            "id": 3,
+            "name": "Cindy",
+            "email": "cindy@gmail.com",
+            "imageUrl": "https://picsum.photos/id/1006/500/500"
+          }
+        },
+        {
+          "id": 84,
+          "userId": 1,
+          "postId": 26,
+          "body": "Testing...",
+          "user": {
+            "id": 1,
+            "name": "John Doe",
+            "email": "jDoe@gmail.com",
+            "imageUrl": "https://picsum.photos/id/1040/500/500"
+          }
+        },
+        {
+          "id": 177,
+          "userId": 129,
+          "postId": 26,
+          "body": "Test",
+          "user": {
+            "id": 129,
+            "name": "Gurdeep Singh",
+            "email": "gurdeep.singh@gmail.com",
+            "password": "qwerty123",
+            "imageUrl": ""
+          }
+        }
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "postId": 1,
+      "userId": 1,
+      "body": "This is a comment 1"
+    },
+    {
+      "id": 2,
+      "postId": 2,
+      "userId": 1,
+      "body": "This is a comment 2"
+    },
+    {
+      "id": 3,
+      "postId": 2,
+      "userId": 1,
+      "body": "This is a comment 2.1"
+    },
+    {
+      "id": 82,
+      "postId": 26,
+      "userId": 1,
+      "body": "Test comment"
+    },
+    {
+      "id": 61,
+      "postId": 26,
+      "userId": 2,
+      "body": "Nice post on web development"
+    },
+    {
+      "id": 9,
+      "postId": 26,
+      "userId": 3,
+      "body": "Ahh!!\nNice work man"
+    },
+    {
+      "id": 83,
+      "postId": 89,
+      "userId": 1,
+      "body": "Nice post"
+    },
+    {
+      "id": 72,
+      "postId": 89,
+      "userId": 1,
+      "body": "Good write on JSON server"
+    },
+    {
+      "id": 7,
+      "userId": 1,
+      "postId": 89,
+      "body": "Nice Work"
+    },
+    {
+      "id": 13,
+      "userId": 1,
+      "postId": 89,
+      "body": "Test"
+    },
+    {
+      "id": 866,
+      "userId": 1,
+      "postId": 2,
+      "body": "Teeds"
+    },
+    {
+      "id": 626,
+      "userId": 1,
+      "postId": 2,
+      "body": "SRfdxxcbj"
+    },
+    {
+      "id": 84,
+      "userId": 1,
+      "postId": 26,
+      "body": "Testing..."
+    },
+    {
+      "id": 230,
+      "userId": 1,
+      "postId": 4,
+      "body": "Awesome view of river and mountains"
+    },
+    {
+      "id": 575,
+      "userId": 1,
+      "postId": 37,
+      "body": "That what a glacier is!!!"
+    },
+    {
+      "id": 695,
+      "userId": 1,
+      "postId": 37,
+      "body": "Nice picture man"
+    },
+    {
+      "id": 126,
+      "userId": 129,
+      "postId": 86,
+      "body": "Nice View"
+    },
+    {
+      "id": 349,
+      "userId": 383,
+      "postId": 86,
+      "body": "Awesome!!!!"
+    },
+    {
+      "id": 177,
+      "userId": 129,
+      "postId": 26,
+      "body": "Test"
+    },
+    {
+      "id": 170,
+      "userId": 129,
+      "postId": 2,
+      "body": "Tesr"
+    }
+  ],
+  "categories": [
+    {
+      "id": "C001",
+      "name": "Shoes"
+    },
+    {
+      "id": "C002",
+      "name": "Shirts"
+    },
+    {
+      "id": "C003",
+      "name": "T-Shirts"
+    },
+    {
+      "id": "C004",
+      "name": "Jeans"
+    }
+  ],
+  "products": [
+    {
+      "categoryId": "C001",
+      "id": "P001",
+      "name": "Wellington boots",
+      "description": "Description of Wellington boots"
+    },
+    {
+      "categoryId": "C001",
+      "id": "P002",
+      "name": "Timberland boots",
+      "description": "Description of Timberland boots"
+    },
+    {
+      "categoryId": "C002",
+      "id": "P003",
+      "name": "Peter England Shirts",
+      "description": "Description of Peter England Shirts"
+    },
+    {
+      "categoryId": "C002",
+      "id": "P004",
+      "name": "Van Heusen Shirt",
+      "description": "Description of Van Heusen Shirt"
+    }
+  ],
+  "productDetails": [
+    {
+      "productId": "P001",
+      "name": "Wellington boots",
+      "sizes": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "colors": [
+        "Black",
+        "Brown",
+        "White"
+      ],
+      "price": "2500"
+    },
+    {
+      "productId": "P002",
+      "name": "Timberland boots",
+      "sizes": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "colors": [
+        "Black",
+        "Brown",
+        "White",
+        "Beige",
+        "Maroon"
+      ],
+      "price": "5500"
+    },
+    {
+      "productId": "P003",
+      "name": "Peter England Shirts",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Black",
+        "Red",
+        "White",
+        "Blue"
+      ],
+      "price": "500"
+    },
+    {
+      "productId": "P004",
+      "name": "Van Heusen Shirt",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Black",
+        "Red",
+        "White",
+        "Blue"
+      ],
+      "price": "750"
+    }
+  ],
+  "taskList": [
+    {
+      "id": 1,
+      "title": "Vacation Planing",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "title": "Buy a house",
+      "isActive": false
+    },
+    {
+      "id": 3,
+      "title": "Save Money",
+      "isActive": false
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "taskListId": 1,
+      "title": "Search a destination",
+      "status": false
+    },
+    {
+      "id": 2,
+      "taskListId": 1,
+      "title": "Call executive for enquiry",
+      "status": false
+    },
+    {
+      "id": 3,
+      "taskListId": 1,
+      "title": "Book Tickets",
+      "status": false
+    },
+    {
+      "id": 4,
+      "taskListId": 2,
+      "title": "Enquire Bank for loan",
+      "status": false
+    }
+  ],
+  "logs": []
+}

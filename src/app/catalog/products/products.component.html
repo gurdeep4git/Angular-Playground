@@ -1,0 +1,12 @@
+<a class="d-inline-block mb-3" [routerLink]="['/catalog']">Back</a>
+
+<ul class="list-group">
+    <ng-container *ngFor="let product of products">
+        <a [routerLink]="[product.id + '/details']">
+            <li class="list-group-item">
+                {{product.name}}
+                <small class="d-block">{{product.description}}</small>
+            </li>
+        </a>
+    </ng-container>
+</ul>

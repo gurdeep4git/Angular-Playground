@@ -1,0 +1,6 @@
+<p>Select a category for shopping</p>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let category of categories">
+        <a [routerLink]="[category.id + '/products']">{{category.name}}</a>
+    </li>
+</ul>

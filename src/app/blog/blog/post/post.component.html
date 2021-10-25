@@ -1,0 +1,51 @@
+<ng-container *ngFor="let post of posts">
+  <ng-container *ngIf="!isSidePost; else sidePostTemplate">
+    <div class="post p-3 shadow mb-5">
+      <div class="row">
+        <div class="col-3">
+          <img
+            class="img-fluid img-thumbnail rounded"
+            [src]="post.imageUrl"
+            alt="image"
+          />
+        </div>
+        <div class="col-8">
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.createdDate }}</p>
+          <p>{{ post.body }}</p>
+          <a [routerLink]="['/post', post.id]" href="javscript:void(0)"
+            >Read More</a
+          >
+        </div>
+        <div class="col-1">
+          <div class="d-flex justify-content-between">
+            <i
+              [routerLink]="['/post/edit', post.id]"
+              class="fa fa-pencil-square-o"
+            ></i>
+            <i (click)="onDelete(post)" class="fa fa-trash-o"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #sidePostTemplate>
+    <div class="post side-post p-3 shadow mb-3">
+      <div class="row">
+        <div class="col-3">
+          <img
+            class="img-fluid img-thumbnail rounded"
+            [src]="post.imageUrl"
+            alt="image"
+          />
+        </div>
+        <div class="col-9">
+          <h6>{{ post.title }}</h6>
+          <a [routerLink]="['/post', post.id]" href="javscript:void(0)"
+            >Read More</a
+          >
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</ng-container>

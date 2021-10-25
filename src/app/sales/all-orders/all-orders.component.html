@@ -1,0 +1,21 @@
+<div class="bg-white p-4 custom-border">
+    <div class="row">
+        <div class="col-4">
+            <div class="search-block mb-3">
+                <input [formControl]="queryField" type="text" class="form-control" placeholder="Search name..." />
+            </div>
+        </div>
+        <div *ngIf="selectedOrders.length > 0" class="col-3 offset-5 text-right">
+            <button (click)="shipOrders()" class="btn btn-secondary">Ship selected orders</button>
+        </div>
+    </div>
+
+    <!-- <app-order-table-ui [orders]="allOrdersCopy" [searchText]="searchText"
+        (markAsFulfilledClick)="markAsFulfilled($event)" (checkboxChange)="markAsShipped($event)">
+    </app-order-table-ui> -->
+
+    <app-order-table-ui [orders]="allOrdersCopy" [searchText]="searchText" (checkboxChange)="markAsShipped($event)">
+    </app-order-table-ui>
+</div>
+
+<app-loader></app-loader>

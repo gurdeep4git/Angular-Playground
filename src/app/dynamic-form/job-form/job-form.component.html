@@ -1,0 +1,62 @@
+<div class="container">
+  <h1>Job Application Form</h1>
+  <div class="row py-4">
+    <div class="col-5">
+      <form [formGroup]="jobForm" (ngSubmit)="onSubmit(jobForm.value)">
+        <!-- Personal Info -->
+        <p>Personal Info</p>
+        <app-personal-info
+          [personalInfo]="jobForm.get('personalInfo')"
+        ></app-personal-info>
+
+        <!-- Experience -->
+        <p>Experience</p>
+        <app-experience
+          [experience]="jobForm.get('experience')"
+        ></app-experience>
+
+        <!-- Education -->
+        <p>Education</p>
+        <app-education [education]="jobForm.get('education')"></app-education>
+        <!-- Skills -->
+        <div class="clearfix">
+          <p class="float-left">Skills</p>
+          <button
+            (click)="onAddSkill()"
+            type="button"
+            class="btn btn-link float-right"
+          >
+            Add new skill
+          </button>
+        </div>
+        <div *ngFor="let skill of skills.controls; index as i">
+          <div [formGroup]="skill">
+            <div class="mb-3">
+              <label class="form-label">Skill {{ i + 1 }}</label>
+              <div class="input-group mb-3">
+                <input
+                  formControlName="skillName"
+                  type="text"
+                  class="form-control"
+                />
+                <span (click)="onDeleteSkill(i)" class="input-group-text"
+                  >X</span
+                >
+              </div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  skill.controls.skillName.touched &&
+                  skill.controls.skillName.errors?.required
+                "
+                >Field is required</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<!-- [@fullscreenAnimation]="animationState" -->
+<app-fullscreen
+  *ngIf="isFullscreenShown$ | async"
+  [htmlTemplate]="filter"
+  (fullscreenSubmit)="onFullscreenSubmit()"
+></app-fullscreen>
+
+<ng-container *ngIf="!isLoading; else loader">
+  <div class="row">
+    <div class="col-9">
+      <div class="d-flex justify-content-between mb-3">
+        <h4>Posts</h4>
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary"
+            [routerLink]="['/post', 'add']"
+          >
+            New post
+          </button>
+          <button
+            (click)="openFullscreen()"
+            type="button"
+            class="btn btn-default ml-3"
+          >
+            Filters
+          </button>
+        </div>
+      </div>
+      <app-post [posts]="posts"></app-post>
+      <div class="text-center">
+        <button
+          *ngIf="!noMorePosts"
+          class="btn btn-primary"
+          (click)="loadMorePosts()"
+        >
+          More posts
+        </button>
+        <p *ngIf="noMorePosts">No more posts</p>
+      </div>
+    </div>
+    <div class="col-3">
+      <ng-container *ngIf="popularPosts && popularPosts.length > 0">
+        <h5>Popular posts</h5>
+        <app-post [isSidePost]="true" [posts]="popularPosts"></app-post>
+      </ng-container>
+
+      <hr *ngIf="popularPosts && popularPosts.length > 0" />
+
+      <ng-container *ngIf="recentPosts && recentPosts.length > 0">
+        <h5>Recent posts</h5>
+        <app-post [isSidePost]="true" [posts]="recentPosts"></app-post>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loader>
+  <app-skeleton-loader></app-skeleton-loader>
+</ng-template>
+
+<ng-template #filter>
+  <app-filters></app-filters>
+</ng-template>

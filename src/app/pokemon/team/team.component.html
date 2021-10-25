@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="col-md-4">
+    <div
+      class="
+        d-flex
+        align-items-center
+        justify-content-between
+        position-relative
+      "
+    >
+      <p>Available Pokemons</p>
+      <div>
+        <i
+          (click)="toggleOrderBy()"
+          *ngIf="order === orderBy.Ascending"
+          class="fa fa-sort-amount-asc order-icon"
+        ></i>
+        <i
+          (click)="toggleOrderBy()"
+          *ngIf="order === orderBy.Descending"
+          class="fa fa-sort-amount-desc order-icon"
+        ></i>
+      </div>
+    </div>
+
+    <input
+      #search
+      type="text"
+      class="form-control mb-3"
+      (keyup)="onSearch()"
+      placeholder="Search Pokemon"
+    />
+
+    <div class="custom-control custom-checkbox">
+      <input
+        type="checkbox"
+        [checked]="isSelectAllChecked"
+        (change)="selectAllChange($event)"
+        class="custom-control-input"
+        id="selectall"
+      />
+      <label class="custom-control-label font-weight-bold" for="selectall">
+        Select All
+      </label>
+    </div>
+    <ng-container *ngIf="filteredPokemons">
+      <ng-container *ngFor="let pokemon of filteredPokemons">
+        <div class="custom-control custom-checkbox">
+          <input
+            [checked]="pokemon.isSelected"
+            (change)="onCheckboxChange($event, pokemon)"
+            type="checkbox"
+            class="custom-control-input"
+            [id]="pokemon.name"
+          />
+          <label class="custom-control-label" [for]="pokemon.name">
+            {{ pokemon.name }}
+          </label>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="col-md-4 offset-md-4">
+    <p>Selected Pokemons ({{ selectedCount }})</p>
+    <ng-container *ngFor="let sPokemon of selectedPokemons">
+      <div
+        class="
+          p-3
+          bg-secondary
+          text-white
+          d-flex
+          align-items-center
+          justify-content-between
+        "
+      >
+        <span>{{ sPokemon.name }}</span>
+        <i
+          (click)="deleteSelectedPokemon(sPokemon.name)"
+          class="fa fa-times"
+        ></i>
+      </div>
+    </ng-container>
+  </div>
+</div>

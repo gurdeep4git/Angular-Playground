@@ -1,0 +1,14 @@
+<div
+  class="user-initials"
+  [ngClass]="{
+    'initials-sm': isNavbarParent,
+    'lineheight-auto': user.imageUrl
+  }"
+>
+  <ng-container *ngIf="user.imageUrl; else initial">
+    <img [src]="user.imageUrl" class="rounded-circle mr-3" alt="user" />
+  </ng-container>
+  <ng-template #initial>
+    <span>{{ this.user.name.charAt(0) }}</span>
+  </ng-template>
+</div>

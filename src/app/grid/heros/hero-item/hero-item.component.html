@@ -1,0 +1,24 @@
+<!-- <div class="mb-3">
+    <ng-template [ngTemplateOutlet]="saveWorldTemplate" [ngTemplateOutletContext]="saveWorldStatus()"></ng-template>
+
+    <p class="m-0">{{hero.id}} | {{hero.name}}</p>
+    <div>
+        <ng-container *ngFor="let ability of hero.abilities">
+            <span class="badge badge-primary mr-1">{{ability}}</span>
+        </ng-container>
+    </div>
+    <button (click)="saveWorld(true)" class="btn btn-secondary mr-2">Save World</button>
+    <button (click)="saveWorld(false)" class="btn btn-secondary">Destroy World</button>
+</div>
+
+<ng-template #saveWorldTemplate let-saveWorldStatus="status">
+    <p *ngIf="saveWorldStatus">I will save world!!!</p>
+    <p *ngIf="!saveWorldStatus">I will destroy world!!!</p>
+</ng-template> -->
+
+<div>
+    <h1>I am super Hero</h1>
+    <ng-content>
+    </ng-content>
+    <button class="btn btn-primary" (click)="showAlert()">Click Me!</button>
+</div>

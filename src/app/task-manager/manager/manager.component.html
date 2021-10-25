@@ -1,0 +1,12 @@
+<h4>Welcome to Task Manager</h4>
+
+<ng-container *ngIf="taskList && tasks">
+    <div class="row">
+        <div class="col-3">
+            <app-list [taskList]="taskList" (taskListClick)="onTaskListClick($event)"></app-list>
+        </div>
+        <div class="col-9">
+            <app-task [tasks]="tasks"></app-task>
+        </div>
+    </div>
+</ng-container>

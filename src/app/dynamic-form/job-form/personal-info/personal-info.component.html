@@ -1,0 +1,58 @@
+<div [formGroup]="personalInfo">
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input formControlName="name" required type="text" class="form-control" />
+    <span
+      class="text-danger"
+      *ngIf="
+        personalInfo.controls.name.touched &&
+        personalInfo.controls.name.errors?.required
+      "
+      >Field is required</span
+    >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input formControlName="email" required type="email" class="form-control" />
+    <span
+      class="text-danger"
+      *ngIf="
+        personalInfo.controls.email.touched &&
+        personalInfo.controls.email.errors?.required
+      "
+      >Field is required</span
+    >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Phone</label>
+    <input formControlName="phone" required type="text" class="form-control" />
+    <span
+      class="text-danger"
+      *ngIf="
+        personalInfo.controls.phone.touched &&
+        personalInfo.controls.phone.errors?.required
+      "
+      >Field is required</span
+    >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Address</label>
+    <textarea
+      formControlName="address"
+      required
+      class="form-control"
+      rows="3"
+    ></textarea>
+    <span
+      class="text-danger"
+      *ngIf="
+        personalInfo.controls.address.touched &&
+        personalInfo.controls.address.errors?.required
+      "
+      >Field is required</span
+    >
+  </div>
+</div>
