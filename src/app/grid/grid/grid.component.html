@@ -1,4 +1,7 @@
 <p (click)="getText($event)">{{title}}</p>
+
+<a routerLink="async">Async-code</a>
+
 <div class="grid-container">
   <ng-container *ngFor="let card of cards">
     <div class="grid-item" [ngStyle]="{
@@ -41,3 +44,6 @@
     <div class="card-body">{{ data.name }} - {{ data.description }}</div>
   </div>
 </ng-template>
+
+<hr />
+<app-async-code></app-async-code>

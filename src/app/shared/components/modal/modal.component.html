@@ -1,0 +1,17 @@
+<div class="modal-custom">
+    <div class="modal-custom-content">
+        <div class="modal-custom-header">
+            <span (click)="onSecondaryButtonClick()" class="close">&times;</span>
+            <h5>{{modalConfiguration.headerText}}</h5>
+        </div>
+        <div class="modal-custom-body">
+            <ng-content select="[modal-body]"></ng-content>
+        </div>
+        <div class="modal-custom-footer">
+            <button (click)="onPrimaryButtonClick()"
+                class="btn btn-dark">{{modalConfiguration.primaryButtonText}}</button>
+            <button (click)="onSecondaryButtonClick()"
+                class="btn btn-dark ml-2">{{modalConfiguration.secondaryButtonText}}</button>
+        </div>
+    </div>
+</div>

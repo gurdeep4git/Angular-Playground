@@ -13,6 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserInitialComponent } from './components/fullscreen/user-initial/user-initial.component';
 import { interceptorProvider } from "../shared/interceptors"
 import { LoaderComponent } from './components/loader/loader.component';
+import { ModalComponent } from './components/modal/modal.component';
+
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     NotFoundComponent,
     UserInitialComponent,
     LoaderComponent,
+    ModalComponent,
+
   ],
   imports: [CommonModule, ReactiveFormsModule, TabsModule.forRoot()],
   exports: [
@@ -36,6 +40,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     AuthComponent,
     NotFoundComponent,
     UserInitialComponent,
+    ModalComponent
   ],
   providers: [
     ApiService,

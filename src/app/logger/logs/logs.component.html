@@ -1,1 +1,15 @@
-<p>logs works!</p>
+<button (click)="openModal()">Add</button>
+
+<app-modal *ngIf="!!isModalShown" [modalConfiguration]="modalConfiguration"
+    (primaryButtonClick)="onPrimaryButtonClick(jiraForm.value)" (secondaryButtonClick)="onSecondaryButtonClick()">
+    <div modal-body>
+        <form [formGroup]="jiraForm">
+            <div>
+                <label for="test">Title</label>
+                <input type="text" id="test" name="test" formControlName="test">
+                <span *ngIf="!jiraForm.controls.test?.valid && (jiraForm.controls.test?.dirty
+                ||jiraForm.controls.test?.touched)" class="small text-danger">This is a required field</span>
+            </div>
+        </form>
+    </div>
+</app-modal>
